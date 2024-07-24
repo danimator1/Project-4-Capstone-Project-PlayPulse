@@ -33,3 +33,7 @@ The NFL Statistics App is a full-stack web application that provides detailed st
 - The Sports DB
 - Pro Football API
 - Football Data API
+
+
+## API In Use
+https://gist.github.com/nntrn/ee26cb2a0716de0947a0a4e9a157bc1c#teams

@@ -1,9 +1,13 @@
-export default function Nav  ()  {
-    return (
-           <div className="nav">
-               <h2> I am a Nav </h2>
-           </div>
-    )
-   }
-   
-   
+import { Link } from 'react-router-dom'
+
+export default function Nav() {
+  return (
+    <nav>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/teamlist">Teams</Link></li>
+        {/* Add other links as needed */}
+      </ul>
+    </nav>
+  )
+}
