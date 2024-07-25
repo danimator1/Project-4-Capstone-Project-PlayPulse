@@ -13,9 +13,11 @@ export default function App() {
       const response = await axios.get('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams')
       console.log('data', response)
       setTeams(response.data.sports[0].leagues[0].teams)
-    };
+    }
     getTeams()
   }, [])
+
+  
 
   return (
     <div className="app">

@@ -6,6 +6,7 @@ export default function Nav() {
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/teamlist">Teams</Link></li>
+        <li><Link to="/playerlist">Players</Link></li>
         {/* Add other links as needed */}
       </ul>
     </nav>

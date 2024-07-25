@@ -13,7 +13,7 @@ export default function Main(props) {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/teamlist" element={<TeamList teams={props.teams} />} />
-        {/* <Route path="/team/:id" element={<TeamDetail teams={props.teams} />} /> */}
+        <Route path="/team/:id" element={<TeamDetail teams={props.teams} />} />
       </Routes>
     </div>
   )
