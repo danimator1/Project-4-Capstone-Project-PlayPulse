@@ -7,6 +7,7 @@ import Main from './components/Main'
 
 export default function App() {
   const [teams, setTeams] = useState([])
+  const [players, setPlayers] = useState([])
 
   useEffect(() => {
     const getTeams = async () => {
@@ -17,6 +18,15 @@ export default function App() {
     getTeams()
   }, [])
 
+  useEffect(() => {
+        const getPlayers = async () => {
+          const response = await axios.get('https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/athletes?limit=1000&active=true')
+          console.log('data', response)
+          setPlayers(response.data.items)
+        }
+        getPlayers()
+      }, [])
+
   
 
   return (
@@ -26,7 +36,8 @@ export default function App() {
       </div>
 
       <div className="app-main">
-        <Main teams={teams} />
+        <Main teams={teams}
+            players={players} />
       </div>
 
       <div className="app-footer">

@@ -6,6 +6,9 @@ import SportList from './SportList'
 import TeamList from './TeamList'
 import TeamDetail from './TeamDetail'
 import UserList from './UserList'
+import PlayerList from './PlayerList'
+import PlayerDetail from './PlayerDetail'
+
 
 export default function Main(props) {
   return (
@@ -14,6 +17,8 @@ export default function Main(props) {
         <Route path="/" element={<Home />} />
         <Route path="/teamlist" element={<TeamList teams={props.teams} />} />
         <Route path="/team/:id" element={<TeamDetail teams={props.teams} />} />
+        <Route path="/playerlist" element={<PlayerList />} />
+        <Route path="/player/:id" element={<PlayerDetail />} />
       </Routes>
     </div>
   )
