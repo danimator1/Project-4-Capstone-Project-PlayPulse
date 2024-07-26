@@ -8,6 +8,7 @@ import TeamDetail from './TeamDetail'
 import UserList from './UserList'
 import PlayerList from './PlayerList'
 import PlayerDetail from './PlayerDetail'
+import PlayerOverviewList from './PlayerOverviewList'
 
 
 export default function Main(props) {
@@ -19,6 +20,7 @@ export default function Main(props) {
         <Route path="/team/:id" element={<TeamDetail teams={props.teams} />} />
         <Route path="/playerlist" element={<PlayerList />} />
         <Route path="/player/:id" element={<PlayerDetail />} />
+        <Route path="/playeroverviewlist" element={<PlayerOverviewList />} />
       </Routes>
     </div>
   )

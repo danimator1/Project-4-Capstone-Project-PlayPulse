@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import axios from 'axios';
+import { useEffect, useState } from "react"
+import { useParams, Link } from "react-router-dom"
+import axios from 'axios'
 
 export default function PlayerDetail() {
-  const [player, setPlayer] = useState(null);
-  const { id } = useParams();
+  const [player, setPlayer] = useState(null)
+  const { id } = useParams()
 
   useEffect(() => {
     const fetchPlayer = async () => {
       try {
-        const response = await axios.get(`https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/athletes/${id}?lang=en&region=us`);
-        setPlayer(response.data);
+        const response = await axios.get(`https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/athletes/${id}?lang=en&region=us`)
+        setPlayer(response.data)
       } catch (error) {
-        console.error('Error fetching player details:', error);
+        console.error('Error fetching player details:', error)
       }
-    };
+    }
 
-    fetchPlayer();
-  }, [id]);
+    fetchPlayer()
+  }, [id])
 
   return player ? (
     <div className="detail">
@@ -32,5 +32,5 @@ export default function PlayerDetail() {
     </div>
   ) : (
     <h3>Finding Player...</h3>
-  );
+  )
 }

@@ -8,6 +8,7 @@ import Main from './components/Main'
 export default function App() {
   const [teams, setTeams] = useState([])
   const [players, setPlayers] = useState([])
+  const [overviews, setOverviews] = useState([])
 
   useEffect(() => {
     const getTeams = async () => {
@@ -27,7 +28,14 @@ export default function App() {
         getPlayers()
       }, [])
 
-  
+      useEffect(() => {
+        const getOverviews = async () => {
+          const response = await axios.get('https://site.web.api.espn.com/apis/common/v3/sports/football/nfl/athletes/14876/overview')
+          console.log('data', response)
+          setOverviews(response.data.news)
+        }
+        getOverviews()
+      }, [])
 
   return (
     <div className="app">
@@ -37,7 +45,8 @@ export default function App() {
 
       <div className="app-main">
         <Main teams={teams}
-            players={players} />
+            players={players} 
+          overviews={overviews}/>
       </div>
 
       <div className="app-footer">
