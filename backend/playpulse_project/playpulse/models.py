@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 class Sport(models.Model):
     name = models.CharField(max_length=255)
@@ -79,7 +78,6 @@ class TeamStats(models.Model):
    
 
 class Query(models.Model):
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
   query_text = models.TextField()
   response = models.TextField()
   created_at = models.DateTimeField(auto_now_add=True)
@@ -87,7 +85,7 @@ class Query(models.Model):
 
 
   def __str__(self):
-        return f"Query by {self.user}"
+        return f"Query: {self.query_text}"
   
 class FunFact(models.Model):
   ENTITY_CHOICES = [
@@ -96,15 +94,11 @@ class FunFact(models.Model):
         ('Player', 'Player'),
         ('Game', 'Game')
     ]
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
   entity_type = models.CharField(max_length=10, choices=ENTITY_CHOICES)
   entity_id = models.PositiveIntegerField()
   text = models.TextField()
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
 
-
-
   def __str__(self):
-        return f"FunFact by {self.user} on {self.entity_type} {self.entity_id}"
-
+        return f"FunFact on {self.entity_type} {self.entity_id}"

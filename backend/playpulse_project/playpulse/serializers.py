@@ -134,28 +134,20 @@ class TeamStatsSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class QuerySerializer(serializers.HyperlinkedModelSerializer):
-    user = serializers.HyperlinkedRelatedField(
-        view_name='user-detail',
-        read_only=True
-    )
     query_url = serializers.ModelSerializer.serializer_url_field(
         view_name='query-detail'
     )
 
     class Meta:
         model = Query
-        fields = ('id', 'query_url', 'url', 'user', 'query_text', 'response', 'created_at', 'updated_at')
+        fields = ('id', 'query_url', 'url', 'query_text', 'response', 'created_at', 'updated_at')
 
 
 class FunFactSerializer(serializers.HyperlinkedModelSerializer):
-    user = serializers.HyperlinkedRelatedField(
-        view_name='user-detail',
-        read_only=True
-    )
     funfact_url = serializers.ModelSerializer.serializer_url_field(
         view_name='funfact-detail'
     )
 
     class Meta:
         model = FunFact
-        fields = ('id', 'funfact_url', 'url', 'user', 'entity_type', 'entity_id', 'text', 'created_at', 'updated_at')
+        fields = ('id', 'funfact_url', 'url', 'entity_type', 'entity_id', 'text', 'created_at', 'updated_at')

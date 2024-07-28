@@ -1,25 +1,25 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export default function PlayerList() {
-  const [players, setPlayers] = useState([]);
+  const [players, setPlayers] = useState([])
 
   useEffect(() => {
     const getPlayers = async () => {
-      const response = await axios.get('https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/athletes?limit=1000&active=true');
-      const playerLinks = response.data.items.map(item => item.$ref);
-      const playerDetails = await Promise.all(playerLinks.map(link => axios.get(link).then(res => res.data)));
-      setPlayers(playerDetails);
-    };
-    getPlayers();
-  }, []);
+      const response = await axios.get('https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/athletes?limit=1000&active=true')
+      const playerLinks = response.data.items.map(item => item.$ref)
+      const playerDetails = await Promise.all(playerLinks.map(link => axios.get(link).then(res => res.data)))
+      setPlayers(playerDetails)
+    }
+    getPlayers()
+  }, [])
 
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
   const showPlayer = (id) => {
-    navigate(`/player/${id}`);
-  };
+    navigate(`/player/${id}`)
+  }
 
   return (
     <div className="player-list">
@@ -30,5 +30,5 @@ export default function PlayerList() {
         </div>
       ))}
     </div>
-  );
+  )
 }

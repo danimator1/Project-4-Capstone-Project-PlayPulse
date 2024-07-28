@@ -2,6 +2,8 @@ from django.shortcuts import render
 from rest_framework import generics
 from .serializers import SportSerializer, TeamSerializer, PlayerSerializer, GameSerializer, PlayerStatsSerializer, TeamStatsSerializer, QuerySerializer, FunFactSerializer
 from .models import Sport, Team, Player, Game, PlayerStats, TeamStats, Query, FunFact
+from rest_framework.permissions import AllowAny
+from .serializers import FunFactSerializer
 
 class SportList(generics.ListCreateAPIView):
     queryset = Sport.objects.all()
@@ -62,7 +64,12 @@ class QueryDetail(generics.RetrieveUpdateDestroyAPIView):
 class FunFactList(generics.ListCreateAPIView):
     queryset = FunFact.objects.all()
     serializer_class = FunFactSerializer
+    permission_classes = [AllowAny]
+
 
 class FunFactDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = FunFact.objects.all()
     serializer_class = FunFactSerializer
+    permission_classes = [AllowAny]
+    
+

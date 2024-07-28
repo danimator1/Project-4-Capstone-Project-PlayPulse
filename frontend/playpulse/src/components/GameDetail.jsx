@@ -1,5 +1,5 @@
-import PlayerOverviewDetail from "./PlayerOverviewDetail";
-import TeamStatsDetail from "./TeamStatsDetail";
+
+import TeamStatsDetail from "./TeamStatsDetail"
 
 export default function GameDetail  ()  {
     return (
@@ -7,9 +7,7 @@ export default function GameDetail  ()  {
                <h2> GameDetail </h2>
 
 
-               <div className="app-playerstat-detail">
-               <PlayerOverviewDetail />
-              </div>
+            
 
 
               <div className="app-teamstat-detail">
