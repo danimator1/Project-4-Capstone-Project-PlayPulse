@@ -1,23 +1,24 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react"
+import axios from "axios"
+import './Overview.css'
 
 export default function TeamList() {
-  const [overviews, setOverviews] = useState([]);
+  const [overviews, setOverviews] = useState([])
 
   useEffect(() => {
     const getOverviews = async () => {
       try {
-        const response = await axios.get(`https://site.web.api.espn.com/apis/common/v3/sports/football/nfl/athletes/14876/overview`);
-        setOverviews(response.data.news || []);
+        const response = await axios.get(`https://site.web.api.espn.com/apis/common/v3/sports/football/nfl/athletes/14876/overview`)
+        setOverviews(response.data.news || [])
       } catch (error) {
-        console.error("Error fetching overviews:", error);
+        console.error("Error fetching overviews:", error)
       }
     };
-    getOverviews();
-  }, []);
+    getOverviews()
+  }, [])
 
   return (
-    <div className="team-list">
+    <div className="news-list">
       <h2>Player News</h2>
       {overviews.map((overview, index) => (
         <div key={index} className="card">
@@ -35,5 +36,5 @@ export default function TeamList() {
         </div>
       ))}
     </div>
-  );
+  )
 }

@@ -1,0 +1,84 @@
+/* Overall container styling */
+.player-list {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px 20px 60px; /* Adjusted padding: top-right-left are 20px, bottom is 60px */
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Header styling */
+  .player-list h2 {
+    font-size: 2.5rem;
+    color: #343a40;
+    margin-bottom: 20px;
+  }
+  
+  /* Card styling */
+  .player-list .card {
+    display: inline-block;
+    width: calc(25% - 20px);
+    margin: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  /* Hover effect for cards */
+  .player-list .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card header styling */
+  .player-list .card h3 {
+    font-size: 1.25rem;
+    color: #007bff;
+    margin: 0;
+  }
+  
+  /* Button styling */
+  .player-list button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  /* Button hover effect */
+  .player-list button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Loading text styling */
+  .player-list p {
+    font-size: 1rem;
+    color: #495057;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .player-list .card {
+      width: calc(50% - 20px);
+    }
+  
+    .player-list h2 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .player-list .card {
+      width: calc(100% - 20px);
+    }
+  }
+  

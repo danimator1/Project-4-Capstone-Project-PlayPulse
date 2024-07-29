@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import './TeamList.css'
+
 
 export default function TeamList() {
   const [teams, setTeams] = useState([])

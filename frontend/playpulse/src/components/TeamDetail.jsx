@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
+import './TeamDetail.css'
 
 export default function teamDetails({ teams }) {
   const [team, setTeam] = useState(null)
@@ -12,7 +13,7 @@ export default function teamDetails({ teams }) {
 
   return team ? (
     <div className="detail">
-    <h2>{team.team.displayName}</h2>
+      <h2>{team.team.displayName}</h2>
       <p>Location: {team.team.location}</p>
       <img src={team.team.logos[0].href} alt={team.team.displayName} />
       <ul>

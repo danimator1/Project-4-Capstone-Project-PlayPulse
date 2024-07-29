@@ -1,4 +1,4 @@
-import './footer.css'; // Adjust the path if needed
+import './footer.css';
 
 
 export default function Footer() {
