@@ -4,6 +4,8 @@ from .serializers import SportSerializer, TeamSerializer, PlayerSerializer, Game
 from .models import Sport, Team, Player, Game, PlayerStats, TeamStats, Query, FunFact
 from rest_framework.permissions import AllowAny
 from .serializers import FunFactSerializer
+from rest_framework.response import Response
+from rest_framework.exceptions import NotFound
 
 class SportList(generics.ListCreateAPIView):
     queryset = Sport.objects.all()
@@ -65,6 +67,17 @@ class FunFactList(generics.ListCreateAPIView):
     queryset = FunFact.objects.all()
     serializer_class = FunFactSerializer
     permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        entity_type = self.request.query_params.get('entity_type')
+        entity_id = self.request.query_params.get('entity_id')
+
+        if not entity_type or not entity_id:
+            return FunFact.objects.none()
+        if entity_type not in dict(FunFact.ENTITY_CHOICES).keys():
+            raise NotFound("Invalid entity type")
+
+        return FunFact.objects.filter(entity_type=entity_type, entity_id=entity_id)
 
 
 class FunFactDetail(generics.RetrieveUpdateDestroyAPIView):

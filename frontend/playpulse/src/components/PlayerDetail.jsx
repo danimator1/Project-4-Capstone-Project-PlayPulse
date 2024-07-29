@@ -22,7 +22,7 @@ export default function PlayerDetail() {
 
     const fetchFunFacts = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/funfacts/?player_id=${id}`)
+        const response = await axios.get(`http://localhost:8000/funfacts/?entity_type=Player&entity_id=${id}`)
         setFunFacts(response.data)
       } catch (error) {
         console.error("Error fetching fun facts:", error)
