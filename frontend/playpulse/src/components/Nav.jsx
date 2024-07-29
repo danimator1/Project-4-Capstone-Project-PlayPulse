@@ -1,15 +1,31 @@
 import { Link } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function Nav() {
   return (
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/teamlist">Teams</Link></li>
-        <li><Link to="/playerlist">Players</Link></li>
-        <li><Link to="/playeroverviewlist">Players News</Link></li>
-        {/* Add other links as needed */}
-      </ul>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div className="container">
+        <Link className="navbar-brand" to="/">Your Brand</Link>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/teamlist">Teams</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/playerlist">Players</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/playeroverviewlist">Players News</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   )
 }

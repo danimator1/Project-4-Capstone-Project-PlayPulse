@@ -21,7 +21,7 @@ urlpatterns = [
     path('teamstats/<int:pk>/', TeamStatsDetail.as_view(), name='teamstats-detail'),
     path('queries/', QueryList.as_view(), name='query-list'),
     path('queries/<int:pk>/', QueryDetail.as_view(), name='query-detail'),
-     path('funfacts/', FunFactList.as_view(), name='funfact-list'),
-     path('funfacts/', FunFactList.as_view(), name='fun_facts_list'),
+    path('funfacts/', FunFactList.as_view(), name='funfact-list'),
+    path('funfacts/', FunFactList.as_view(), name='fun_facts_list'),
     path('funfacts/<int:pk>/', FunFactDetail.as_view(), name='funfact-detail'),
 ]

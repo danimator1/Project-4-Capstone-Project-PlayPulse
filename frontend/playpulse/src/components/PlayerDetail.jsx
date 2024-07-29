@@ -47,29 +47,36 @@ export default function PlayerDetail() {
   }
 
   return player ? (
-    <div className="detail">
-      <h3>{player.fullName}</h3>
-      <img src={player.headshot.href} alt={player.fullName} />
-      <p>Position: {player.position.displayName}</p>
-      <p>Height: {player.displayHeight}</p>
-      <p>Weight: {player.displayWeight}</p>
-      <p>Age: {player.age}</p>
-      <p>
-        Birthplace: {player.birthPlace.city}, {player.birthPlace.state}
-      </p>
-      <Link to="/playerlist">Return to Player List</Link>
-      <FunFactForm playerId={id} onFunFactSubmit={handleFunFactSubmit} />
-      <h4>Fun Facts</h4>
-      <ul>
-        {funFacts.map((fact) => (
-          <li key={fact.id}>
-            {fact.text}
-            <button onClick={() => handleDeleteFunFact(fact.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+    <div className="container mt-5">
+      <div className="row">
+        <div className="col-md-4">
+          <img src={player.headshot.href} alt={player.fullName} className="img-fluid rounded-circle" />
+        </div>
+        <div className="col-md-8">
+          <h3>{player.fullName}</h3>
+          <p><strong>Position:</strong> {player.position.displayName}</p>
+          <p><strong>Height:</strong> {player.displayHeight}</p>
+          <p><strong>Weight:</strong> {player.displayWeight}</p>
+          <p><strong>Age:</strong> {player.age}</p>
+          <p><strong>Birthplace:</strong> {player.birthPlace.city}, {player.birthPlace.state}</p>
+          <Link to="/playerlist" className="btn btn-primary">Return to Player List</Link>
+        </div>
+      </div>
+      <div className="mt-4">
+        <FunFactForm playerId={id} onFunFactSubmit={handleFunFactSubmit} />
+        <h4 className="mt-4">Fun Facts</h4>
+        <ul className="list-unstyled">
+          {funFacts.map((fact) => (
+            <li key={fact.id} className="mb-3 d-flex justify-content-between align-items-center">
+              <span>{fact.text}</span>
+              <button className="btn btn-danger btn-sm" onClick={() => handleDeleteFunFact(fact.id)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   ) : (
     <h3>Finding Player...</h3>
   )
+  
 }

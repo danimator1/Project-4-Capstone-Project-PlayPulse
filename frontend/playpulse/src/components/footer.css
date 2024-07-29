@@ -1,0 +1,22 @@
+.footer {
+    background-color: #000000 !important; /* Black background */
+    color: #ffffff !important; /* White text */
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .footer h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .footer p {
+    margin: 5px 0 0;
+    font-size: 0.875rem;
+  }
+  

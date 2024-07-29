@@ -50,7 +50,7 @@ export default function App() {
           overviews={overviews}/>
       </div>
 
-      <div className="app-footer">
+      <div className="footer">
         <Footer />
       </div>
     </div>
