@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import { Form, Button } from "react-bootstrap"
+import './PlayerDetail.css'
 
 export default function FunFactForm({ playerId, onFunFactSubmit }) {
   const [formData, setFormData] = useState({
@@ -39,7 +40,7 @@ export default function FunFactForm({ playerId, onFunFactSubmit }) {
           required
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" className="custom-button">
         Submit Fun Fact
       </Button>
     </Form>

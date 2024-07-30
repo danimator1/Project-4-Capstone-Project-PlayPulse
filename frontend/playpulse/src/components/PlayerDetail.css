@@ -110,6 +110,11 @@
   font-size: 30px;
 }
 
+.custom-button {
+  margin: 20px;
+}
+
+
 
 
 @media (max-width: 768px) {
