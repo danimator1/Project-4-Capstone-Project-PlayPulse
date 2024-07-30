@@ -23,7 +23,7 @@
   overflow: hidden;
   border: 1px solid #ddd;
   transition: transform 0.4s, box-shadow 0.4s;
-  padding-bottom: 80px; /* Add bottom padding to create space */
+  padding-bottom: 80px; 
 }
 
 .detail:hover {
@@ -152,6 +152,10 @@
     padding: 12px 24px;
     font-size: 1rem;
   }
+}
+
+.custom-button {
+  margin: 10px;
 }
 
 @media (max-width: 480px) {
