@@ -8,7 +8,7 @@ export default function PlayerList() {
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
   const [hasMore, setHasMore] = useState(true)
-
+  
   useEffect(() => {
     const getPlayers = async () => {
       setLoading(true)
@@ -39,27 +39,12 @@ export default function PlayerList() {
     navigate(`/player/${id}`)
   }
 
-  // Group players by team
-  const groupedPlayers = players.reduce((groups, player) => {
-    const team = player.team ? player.team.abbreviation : 'Unknown';
-    if (!groups[team]) {
-      groups[team] = [];
-    }
-    groups[team].push(player);
-    return groups;
-  }, {});
-
   return (
     <div className="player-list">
       <h2>Players</h2>
-      {Object.keys(groupedPlayers).map((team) => (
-        <div key={team} className="team-section">
-          <h3>{team}</h3>
-          {groupedPlayers[team].map((player) => (
-            <div key={player.id} onClick={() => showPlayer(player.id)} className="card">
-              <h4>{player.fullName}</h4>
-            </div>
-          ))}
+      {players.map((player) => (
+        <div key={player.id} onClick={() => showPlayer(player.id)} className="card">
+          <h3>{player.fullName}</h3>
         </div>
       ))}
       {loading && <p>Loading...</p>}

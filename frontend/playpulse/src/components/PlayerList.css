@@ -1,3 +1,32 @@
+.player-list {
+  padding: 20px;
+}
+
+.team-section {
+  margin-bottom: 30px;
+}
+
+.team-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card {
+  cursor: pointer;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.card h4 {
+  font-size: 1.2rem;
+}
+
+
+
+
 
 .player-list {
     max-width: 1200px;
@@ -64,6 +93,9 @@
     font-size: 1rem;
     color: #495057;
   }
+
+
+  
   
 
   @media (max-width: 768px) {
