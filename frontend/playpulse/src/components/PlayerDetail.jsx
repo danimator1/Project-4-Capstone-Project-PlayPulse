@@ -61,7 +61,7 @@ export default function PlayerDetail() {
         text: newText,
         created_at: funFactToUpdate.created_at,
         updated_at: new Date().toISOString()
-      });
+      })
       setFunFacts((prevFunFacts) => prevFunFacts.map((fact) => (fact.id === funFactId ? response.data : fact)))
       setEditingFunFactId(null)
     } catch (error) {
