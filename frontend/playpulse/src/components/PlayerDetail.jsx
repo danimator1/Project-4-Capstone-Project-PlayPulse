@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import axios from "axios"
 import FunFactForm from "./FunFactForm"
+import './PlayerDetail.css'
 
 export default function PlayerDetail() {
   const [player, setPlayer] = useState(null)
