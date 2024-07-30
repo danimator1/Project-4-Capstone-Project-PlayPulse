@@ -21,7 +21,7 @@ export default function PlayerDetail() {
       } catch (error) {
         console.error("Error fetching player details:", error)
       }
-    };
+    }
 
     const fetchFunFacts = async () => {
       try {
