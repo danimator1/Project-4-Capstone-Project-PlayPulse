@@ -13,3 +13,12 @@
 .nav-link:hover {
   color: #ffdd57;
 }
+
+.custom-navbar .navbar-collapse {
+  padding-right: 20px; /* Adjust the value as needed */
+}
+
+.navbar-nav {
+  margin-left: auto;
+  padding-right: 20px; /* Adjust the value as needed */
+}
