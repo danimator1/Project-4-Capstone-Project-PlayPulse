@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 const FunFactEditForm = ({ funFactId, initialText, onSave, onCancel }) => {
-  const [text, setText] = useState(initialText);
+  const [text, setText] = useState(initialText)
 
   const handleSave = () => {
-    onSave(funFactId, text);
-  };
+    onSave(funFactId, text)
+  }
 
   return (
     <div className="fun-fact-edit-form">
@@ -17,7 +17,7 @@ const FunFactEditForm = ({ funFactId, initialText, onSave, onCancel }) => {
       <button className="btn btn-primary mt-2" onClick={handleSave}>Save</button>
       <button className="btn btn-secondary mt-2" onClick={onCancel}>Cancel</button>
     </div>
-  );
-};
+  )
+}
 
-export default FunFactEditForm;
+export default FunFactEditForm
