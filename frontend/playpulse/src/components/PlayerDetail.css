@@ -105,6 +105,13 @@
 }
 
 
+.bold-label {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+
+
 @media (max-width: 768px) {
   .detail {
     padding: 30px;

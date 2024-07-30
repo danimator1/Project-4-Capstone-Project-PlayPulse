@@ -30,7 +30,7 @@ export default function FunFactForm({ playerId, onFunFactSubmit }) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formText">
-        <Form.Label>Fun Fact</Form.Label>
+      <Form.Label className="bold-label">Fun Facts</Form.Label>
         <Form.Control
           type="text"
           name="text"

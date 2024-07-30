@@ -89,7 +89,6 @@ export default function PlayerDetail() {
       </div>
       <div className="mt-4">
         <FunFactForm playerId={id} onFunFactSubmit={handleFunFactSubmit} />
-        <h4 className="mt-4">Fun Facts</h4>
         <ul className="list-unstyled">
           {funFacts.map((fact) => (
             <li key={fact.id} className="mb-3 d-flex justify-content-between align-items-center">
