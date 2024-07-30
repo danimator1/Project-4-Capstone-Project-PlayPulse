@@ -6,6 +6,7 @@
   min-height: 100vh;
   background: linear-gradient(to right, #fbc2eb, #a6c0fe);
   text-align: center;
+  padding-top: 100px;
 }
 
 .hero {
