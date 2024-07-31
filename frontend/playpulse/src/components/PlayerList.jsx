@@ -1,22 +1,43 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import './PlayerList.css'
 
 export default function PlayerList() {
   const [players, setPlayers] = useState([])
-  const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
   const [hasMore, setHasMore] = useState(true)
+  const observer = useRef()
   
+  const navigate = useNavigate()
+
   useEffect(() => {
     const getPlayers = async () => {
+      if (loading || !hasMore) return
+
       setLoading(true)
       try {
-        const response = await axios.get(`https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/athletes?limit=20&offset=${(page - 1) * 20}&active=true`)
+        const response = await axios.get(`https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/athletes?limit=1000&active=true`)
+        
+        
+        if (response.data.items.length === 0) {
+          setHasMore(false)
+          setLoading(false)
+          return
+        }
+
+     
         const playerDetails = response.data.items.map(item => item.$ref)
         const playerData = await Promise.all(playerDetails.map(link => axios.get(link).then(res => res.data)))
-        setPlayers(prev => [...prev, ...playerData])
+
+     
+        setPlayers(prev => {
+          const prevPlayerIds = new Set(prev.map(player => player.id))
+          const newPlayers = playerData.filter(player => !prevPlayerIds.has(player.id))
+          return [...prev, ...newPlayers]
+        })
+        
+        
         setHasMore(response.data.items.length > 0)
       } catch (error) {
         console.error('Error fetching players:', error)
@@ -25,15 +46,35 @@ export default function PlayerList() {
     }
 
     getPlayers()
-  }, [page])
+  }, [loading, hasMore])
 
-  const loadMore = () => {
-    if (!loading && hasMore) {
-      setPage(prevPage => prevPage + 1)
+ 
+  useEffect(() => {
+    const handleIntersection = (entries) => {
+      const [entry] = entries
+      if (entry.isIntersecting) {
+        setLoading(true)
+      }
     }
-  }
 
-  let navigate = useNavigate()
+    const observerOptions = {
+      root: null,
+      rootMargin: '20px',
+      threshold: 1.0
+    }
+    
+    observer.current = new IntersectionObserver(handleIntersection, observerOptions)
+    const target = document.querySelector('#load-more-trigger')
+    if (target) {
+      observer.current.observe(target)
+    }
+
+    return () => {
+      if (observer.current && target) {
+        observer.current.unobserve(target)
+      }
+    }
+  }, [])
 
   const showPlayer = (id) => {
     navigate(`/player/${id}`)
@@ -48,7 +89,7 @@ export default function PlayerList() {
         </div>
       ))}
       {loading && <p>Loading...</p>}
-      {hasMore && !loading && <button onClick={loadMore}>Load More</button>}
+      <div id="load-more-trigger"></div> 
     </div>
   )
 }
